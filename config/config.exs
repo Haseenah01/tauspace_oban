@@ -10,6 +10,11 @@ import Config
 config :tauspace_oban,
   ecto_repos: [TauspaceOban.Repo]
 
+  config :tauspace_oban, Oban,
+  repo: TauspaceOban.Repo,
+  plugins: [Oban.Plugins.Pruner],
+  queues: [events: [limit: 200, dispatch_cooldown: 10]]
+
 # Configures the endpoint
 config :tauspace_oban, TauspaceObanWeb.Endpoint,
   url: [host: "localhost"],

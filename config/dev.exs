@@ -65,6 +65,9 @@ config :tauspace_oban, TauspaceObanWeb.Endpoint,
 # Enable dev routes for dashboard and mailbox
 config :tauspace_oban, dev_routes: true
 
+config :tauspace_oban, TauspaceOban.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 

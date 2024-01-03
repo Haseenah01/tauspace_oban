@@ -12,6 +12,8 @@ defmodule TauspaceOban.Application do
       TauspaceObanWeb.Telemetry,
       # Start the Ecto repository
       TauspaceOban.Repo,
+
+      {Oban, Application.fetch_env!(:tauspace_oban, Oban)},
       # Start the PubSub system
       {Phoenix.PubSub, name: TauspaceOban.PubSub},
       # Start Finch
