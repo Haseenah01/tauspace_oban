@@ -503,7 +503,7 @@ defmodule TauspaceOban.DeliverEmail do
   %{"to" => "marilynbradford@example.com", "subject" => "Greetings", "body" => "Hello, User 1!"},
   %{"to" => "francis36@example.org", "subject" => "Greetings", "body" => "Hello, User 1!"},
   %{"to" => "tammyromero@example.com", "subject" => "Greetings", "body" => "Hello, User 1!"},
-  %{"to" => "daisyaguilar@example.org", "subject" => "Greetings", "body" => "Hello, User 1!"},
+  %{"to" => "daisyaguilar@example.org", "subject" => "Greetings", "body" => "Hello, User 1!"}
 
 
       # Add more emails as needed

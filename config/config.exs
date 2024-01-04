@@ -12,6 +12,7 @@ config :tauspace_oban,
 
   config :tauspace_oban, Oban,
   repo: TauspaceOban.Repo,
+  # plugins: [Oban.Plugins.Pruner],
   plugins: [Oban.Plugins.Pruner],
   queues: [events: [limit: 10, dispatch_cooldown: 10]]
 
