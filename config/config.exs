@@ -13,7 +13,7 @@ config :tauspace_oban,
   config :tauspace_oban, Oban,
   repo: TauspaceOban.Repo,
   plugins: [Oban.Plugins.Pruner],
-  queues: [events: [limit: 200, dispatch_cooldown: 10]]
+  queues: [events: [limit: 10, dispatch_cooldown: 10]]
 
 # Configures the endpoint
 config :tauspace_oban, TauspaceObanWeb.Endpoint,
