@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :tauspace_oban, TauspaceOban.Repo,
   username: "postgres",
-  password: "123456",
+  password: "postgres",
   hostname: "localhost",
   database: "tauspace_oban_dev",
   stacktrace: true,

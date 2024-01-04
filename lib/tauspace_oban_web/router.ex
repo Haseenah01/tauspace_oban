@@ -18,6 +18,7 @@ defmodule TauspaceObanWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
   end
 
   # Other scopes may use custom stacks.
@@ -37,7 +38,11 @@ defmodule TauspaceObanWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: TauspaceObanWeb.Telemetry
+      live_dashboard "/dashboard", metrics: TauspaceObanWeb.Telemetry,
+      # live_dashboard "/dashboard",
+     additional_pages: [
+     oban: Oban.LiveDashboard
+     ]
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
