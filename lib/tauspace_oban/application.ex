@@ -9,7 +9,12 @@ defmodule TauspaceOban.Application do
 
   def start(_type, _args) do
     #:ok = :telemetry.attach("oban-logger", [:oban, :job, :start], &TauspaceOban.ObanLogger.handle_event/4, nil)
+    #events = [[:oban, :job, :start], [:oban, :job, :stop], [:oban, :job, :exception]]
+    :ok = Oban.Telemetry.attach_default_logger([encode: false, level: :debug])
+    #:telemetry.attach_many("oban-logger", events, &TauspaceOban.ObanLogger.handle_event/4, [])
+
     children = [
+
       # Start the Telemetry supervisor
       TauspaceObanWeb.Telemetry,
       # Start the Ecto repository

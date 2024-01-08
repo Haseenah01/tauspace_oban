@@ -51,8 +51,8 @@ config :logger, level: :debug
     level: :error
 
   config :logger, :connection_log,
-  path: "connections.log",
-  level: :info
+  path: "oban.log",
+  level: :debug
 
 # Configure esbuild (the version is required)
 config :esbuild,
