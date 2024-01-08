@@ -19,7 +19,7 @@ defmodule TauspaceOban.MixProject do
   def application do
     [
       mod: {TauspaceOban.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -51,7 +51,8 @@ defmodule TauspaceOban.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:oban, "~> 2.16"},
-      {:bamboo, "~> 2.3.0"}
+      {:bamboo, "~> 2.3.0"},
+      {:logger_file_backend, "~> 0.0.10"}
     ]
   end
 

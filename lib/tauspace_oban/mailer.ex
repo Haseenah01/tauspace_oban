@@ -1,4 +1,6 @@
 defmodule TauspaceOban.Mailer do
+  require Logger
+
   use Bamboo.Mailer, otp_app: :tauspace_oban
 
   def deliver_many(emails, _opts \\ []) when is_list(emails) do

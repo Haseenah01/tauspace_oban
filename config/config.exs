@@ -35,6 +35,25 @@ config :tauspace_oban, TauspaceObanWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :tauspace_oban, TauspaceOban.Mailer, adapter: Swoosh.Adapters.Local
 
+config :logger, level: :debug
+
+  config :logger,
+    backends: [
+      :console,
+      {LoggerFileBackend, :error_log},
+      {LoggerFileBackend, :connection_log}
+      ],
+    format: "$time [$level] $message $metadata\n",
+    metadata: :all
+
+  config :logger, :error_log,
+    path: "error.log",
+    level: :error
+
+  config :logger, :connection_log,
+  path: "connections.log",
+  level: :info
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

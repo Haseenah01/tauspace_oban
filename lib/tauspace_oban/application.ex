@@ -6,7 +6,9 @@ defmodule TauspaceOban.Application do
   use Application
 
   @impl true
+
   def start(_type, _args) do
+    #:ok = :telemetry.attach("oban-logger", [:oban, :job, :start], &TauspaceOban.ObanLogger.handle_event/4, nil)
     children = [
       # Start the Telemetry supervisor
       TauspaceObanWeb.Telemetry,

@@ -35,3 +35,4 @@ tauspace_oban-*.tar
 npm-debug.log
 /assets/node_modules/
 
+connections.log
