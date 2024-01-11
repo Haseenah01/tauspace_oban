@@ -6,7 +6,7 @@ defmodule TauspaceOban.Workers.Emailjob do
   use Oban.Worker, queue: :events, max_attempts: 3, tags: ["user", "email"], unique: [period: 60]
 
   @impl true
-  def perform(%Oban.Job{args: %{"to" => to, "subject" => subject, "body" => body}} = _job) do
+  def perform(%Oban.Job{args: %{"to" => to, "subject" => subject, "body" => body}} = job) do
     email = new_email(
           to: to,
           from: "haseenahsami27@gmail.com",
@@ -14,7 +14,9 @@ defmodule TauspaceOban.Workers.Emailjob do
           text_body: body
         )
     Mailer.deliver_now(email)
+
+    Oban.Notifier.notify(Oban, :tauspace_oban, %{complete: job.id})
   end
 
-  def timeout(_job), do: :timer.seconds(100)
+  # def timeout(_job), do: :timer.seconds(100)
 end
