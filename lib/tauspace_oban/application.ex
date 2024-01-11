@@ -21,6 +21,7 @@ defmodule TauspaceOban.Application do
       {Finch, name: TauspaceOban.Finch},
       # Start the Endpoint (http/https)
       TauspaceObanWeb.Endpoint
+      # TauspaceOban.Logging
       # Start a worker by calling: TauspaceOban.Worker.start_link(arg)
       # {TauspaceOban.Worker, arg}
     ]

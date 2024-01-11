@@ -12,8 +12,8 @@ config :tauspace_oban,
 
   config :tauspace_oban, Oban,
   repo: TauspaceOban.Repo,
-  # plugins: [Oban.Plugins.Pruner],
-  plugins: [Oban.Plugins.Pruner],
+  #  plugins: [Oban.Plugins.Pruner],
+  plugins: [Oban.Plugins.Pruner, {TauspaceOban.Plugins.Breakdown, interval: :timer.seconds(1)}],
   queues: [events: [limit: 10, dispatch_cooldown: 10]]
 
 # Configures the endpoint
